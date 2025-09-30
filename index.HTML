@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login by ID</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      width: 250px;
+    }
+    #studentName {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Login</h2>
+  <p>Enter your Student ID</p>
+  <input type="text" id="studentIdInput" placeholder="Enter Special Student ID" />
+  <br />
+  <button onclick="detectStudent()">Login</button>
+
+  <div id="studentName"></div>
+
+  <script>
+    // Simulated student database
+    const students = {
+      "STU123": "Alice Johnson",
+      "STU456": "Bob Smith",
+      "STU789": "Charlie Davis",
+      "STU001": "Diana King",
+      "STU999": "Ethan Clark"
+    };
+
+    function detectStudent() {
+      const inputId = document.getElementById("studentIdInput").value.trim().toUpperCase();
+      const nameDisplay = document.getElementById("studentName");
+
+      if (students[inputId]) {
+        nameDisplay.style.color = "green";
+        nameDisplay.textContent = `Welcome, ${students[inputId]}!`;
+      } else {
+        nameDisplay.style.color = "red";
+        nameDisplay.textContent = "Invalid ID. Student not found.";
+      }
+    }
+  </script>
+
+</body>
+</html>
